@@ -285,7 +285,7 @@ function! LinterStatus() abort
                 \   l:all_errors
                 \)
 endfunction
-:colorscheme delek
+:colorscheme default
 
 " show tabs
 set list

@@ -94,7 +94,7 @@ function ecc {
 }
 
 function deps {
-    bazel query --noimplicit_deps "deps($1)" --output graph > /tmp/graph.in
+    bazel query "deps($1)" --output graph > /tmp/graph.in
     dot -T svg < /tmp/graph.in > /tmp/graph.svg
     open /tmp/graph.svg
 }
@@ -175,10 +175,14 @@ alias serve="live-server"
 
 alias k="kubectl"
 alias kx="kubectx"
-alias kn="kubens"
+alias kns="kubens"
+alias kgp="k get pods"
+alias kl="k logs"
 
 alias aff="acli feature from"
 alias afr="acli feature recent"
 alias aoc="acli open ci"
 
 alias brew_x86="/usr/local/bin/brew"
+
+alias logfmt="grep '^{' | jq -r '[.level_name, .msg, .stack_trace] | @tsv' |sed 's/\\\n/\\n/g'"

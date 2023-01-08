@@ -58,8 +58,8 @@ export LANG=en_US.UTF-8
 prompt steeef_simplified
 
 # https://ahmadawais.com/install-go-lang-on-macos-with-homebrew/
-export GOPATH="${HOME}/.go"
-export GOROOT="/usr/local/opt/go/libexec"
+# export GOPATH="${HOME}/.go"
+# export GOROOT="/usr/local/opt/go/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin:${HOME}/go/bin/"
 
 export PATH="$PATH:${HOME}/.cargo/bin/"
@@ -72,7 +72,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
-eval "$(pyenv init -)"
 
 # By default, if a command line contains a globbing expression which doesn't match anything, Zsh will print the error message
 setopt +o nomatch
@@ -97,6 +96,7 @@ setopt +o nomatch
 unsetopt share_history
 setopt no_share_history
 eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
 # eval "$(_ACLI_COMPLETE=source_zsh acli)"
 source ~/dev/tmp/acli_comp.sh
 source /Users/moshe/dev/armis/dev_tools/.armis_aliasrc
@@ -109,6 +109,8 @@ source ~/dev/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source <(kubectl completion zsh)
 
-export DAZEL_DOCKER_BUILD_ARGS='--cache-from=181837087905.dkr.ecr.us-east-1.amazonaws.com/armis/dazel'
-
 export PATH="/opt/homebrew/sbin:$PATH"
+export DAZEL_DOCKER_COMPOSE_FILE=personal_playground/src/dazel/docker-compose.dazel.yml
+export DAZEL_DOCKERFILE=personal_playground/src/dazel/Dockerfile
+
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
