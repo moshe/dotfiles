@@ -290,3 +290,6 @@ endfunction
 " show tabs
 set list
 set listchars=tab:>-
+
+hi Folded ctermbg=19
+hi Folded ctermfg=10

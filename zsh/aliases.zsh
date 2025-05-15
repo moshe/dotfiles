@@ -99,10 +99,10 @@ function deps {
     open /tmp/graph.svg
 }
 
-function squash {
+function squashMain {
   git fetch origin                && \
-  git merge origin/develop        && \
-  git reset --soft origin/develop && \
+  git merge origin/main        && \
+  git reset --soft origin/main && \
   git commit                      && \
   git push -f
 }
@@ -186,3 +186,5 @@ alias aoc="acli open ci"
 alias brew_x86="/usr/local/bin/brew"
 
 alias logfmt="grep '^{' | jq -r '[.level_name, .msg, .stack_trace] | @tsv' |sed 's/\\\n/\\n/g'"
+
+alias ipyspark="SPARK_HOME=/opt/homebrew/Cellar/apache-spark/3.5.0/libexec/ PYSPARK_DRIVER_PYTHON=ipython pyspark --packages org.apache.spark:spark-hadoop-cloud_2.12:3.2.0"

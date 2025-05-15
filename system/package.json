@@ -1,11 +1,33 @@
 {
   "name": "lib",
   "dependencies": {
+    "@appthreat/cdxgen": {
+      "version": "3.2.9",
+      "overridden": false
+    },
+    "@terraform-visual/cli": {
+      "version": "0.2.1",
+      "overridden": false
+    },
     "live-server": {
-      "version": "1.2.1"
+      "version": "1.2.1",
+      "overridden": false
     },
     "npm": {
-      "version": "7.20.3"
+      "version": "10.2.3",
+      "overridden": false
+    },
+    "tplot": {
+      "version": "1.0.4",
+      "overridden": false
+    },
+    "wrangler": {
+      "version": "3.16.0",
+      "overridden": false
+    },
+    "yarn": {
+      "version": "1.22.19",
+      "overridden": false
     }
   }
 }
