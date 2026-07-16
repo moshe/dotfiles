@@ -24,7 +24,7 @@ task :install => [:submodule_init, :submodules] do
 
   Rake::Task["install_prezto"].execute
 
-  install_fonts
+  # install_fonts
 
   install_term_theme if RUBY_PLATFORM.downcase.include?("darwin")
 

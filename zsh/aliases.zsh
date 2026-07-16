@@ -188,3 +188,11 @@ alias brew_x86="/usr/local/bin/brew"
 alias logfmt="grep '^{' | jq -r '[.level_name, .msg, .stack_trace] | @tsv' |sed 's/\\\n/\\n/g'"
 
 alias ipyspark="SPARK_HOME=/opt/homebrew/Cellar/apache-spark/3.5.0/libexec/ PYSPARK_DRIVER_PYTHON=ipython pyspark --packages org.apache.spark:spark-hadoop-cloud_2.12:3.2.0"
+function cla() {
+    (cd ~/dev/armis && NODE_TLS_REJECT_UNAUTHORIZED=0 claude --model global.anthropic.claude-opus-4-8 --add-dir $OLDPWD "$@")
+}
+
+function lintfix() {
+    ruff check $({ git whatchanged --name-only --pretty='' --diff-filter=MA origin/master.. -- '*.py'; git diff --diff-filter=MA --name-only -- '*.py'; } | sort -u | while read f; do [ -f "$f" ] && echo  "$f"; done)  --fix
+    ruff format $({ git whatchanged --name-only --pretty='' --diff-filter=MA origin/master.. -- '*.py'; git diff --diff-filter=MA --name-only -- '*.py'; } | sort -u | while read f; do [ -f "$f" ] && echo  "$f"; done)
+}
